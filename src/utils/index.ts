@@ -1,3 +1,5 @@
+import { stringifyQuery } from "vue-router"
+
 //深拷贝
 export function deepClone(obj:any){
   const _toString = Object.prototype.toString
@@ -48,3 +50,18 @@ export function isObjectNull(t:any) {
 export function isObjectUnde(t:any) {
   return toStr(t) === '[object Undefined]'
 }
+
+//首字母大写
+export function titleCase(str:String){
+  return str.replace(/^[a-z]/g,item=>item.toUpperCase())
+}
+// 下划转驼峰
+export function beautifierConf(str:String){
+  //substr方便反取，slice适合争取
+  return str.replace(/_[a-z]/g,item=>item.substr(-1).toUpperCase())
+}
+//判断是不是数字类型字符串
+export function isNumberStr(str:any){
+  return /^[+-]?(0|([1-9]\d*))(\.\d+)?$/g.test(str)
+}
+export const exportDefault = 'export default '
